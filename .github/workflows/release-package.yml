@@ -1,0 +1,32 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    name: publish
+    permissions:
+      packages: write
+      contents: read
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: install node v16
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16
+        registry-url: https://npm.pkg.github.com/
+    - name: install
+      run: yarn install --frozen-lockfile
+    - name: build
+      run: yarn build
+    - name: test
+      run: yarn test
+
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
