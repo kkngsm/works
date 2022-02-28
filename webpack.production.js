@@ -5,11 +5,12 @@ const path = require("path");
 const srcPath = path.resolve(process.cwd(), "src");
 const files = fs.readdirSync(srcPath);
 
+const extludeDir = ["templates", "test"];
 // //ディレクトリのリストに絞る
 const dirList = files.filter((file) => {
   return (
     fs.statSync(path.resolve(srcPath, file)).isDirectory() &&
-    file != "templates"
+    extludeDir.includes(file)
   );
 });
 const entry = {};
@@ -22,9 +23,7 @@ module.exports.default = {
   output: {
     libraryTarget: "umd",
     globalObject: "this",
-    //  出力ファイルのディレクトリ名
     path: path.resolve(process.cwd(), "lib"),
-    // 出力ファイル名
     filename: "[name].js",
     assetModuleFilename: "assets/[hash]",
   },
