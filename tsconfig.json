@@ -6,14 +6,15 @@
     "strict": true,
     "strictPropertyInitialization": false,
     "removeComments": true,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "forceConsistentCasingInFileNames":true,
+    "outDir": "./lib",
+    "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
     "declaration": true,
+    "sourceMap": true
   },
+  "exclude": ["node_modules", "example/**/*"],
   "include": ["src/**/*"]
 }

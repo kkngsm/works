@@ -1,0 +1,12 @@
+- const datas = htmlWebpackPlugin.options.data
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title index
+  body
+    - for(let key in datas)
+      - data = datas[key]
+      p
+        a(href=`./${key}`) #{data.title}
+

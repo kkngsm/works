@@ -1,0 +1,11 @@
+- const data = htmlWebpackPlugin.options.data
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title #{data.title}
+    script(src="./index.js")
+  body
+    #wrapper
+    input(type="button", id="fullscreen",value="全画面")
+    a(href=data.url)

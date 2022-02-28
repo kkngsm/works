@@ -1,3 +1,1 @@
-export const output = ()=>{
-  console.log("output !!")
-}
+console.log("aaa");

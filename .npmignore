@@ -3,3 +3,4 @@ dist/
 tsconfig.json
 tsconfig.production.json
 .github
+example
