@@ -1,34 +1,37 @@
-// import webpack from 'webpack';
-import * as fs from "fs"
-import path, { dirname }   from 'path';
+const fs = require("fs");
+const path = require("path");
 
 //ファイルとディレクトリのリストが格納される(配列)
-const srcPath = path.join(process.cwd(),'src')
-const files = fs.readdirSync(srcPath)
+const srcPath = path.resolve(process.cwd(), "src");
+const files = fs.readdirSync(srcPath);
 
 // //ディレクトリのリストに絞る
 const dirList = files.filter((file) => {
-    return fs.statSync(path.join(srcPath, file)).isDirectory() && file != "templates"
-})
-
-export default {
+  return (
+    fs.statSync(path.resolve(srcPath, file)).isDirectory() &&
+    file != "templates"
+  );
+});
+const entry = {};
+dirList.forEach((dir) => {
+  entry[dir] = path.resolve(srcPath, dir, "index.ts");
+});
+module.exports.default = {
   mode: process.env.NODE_ENV,
-
-  entry: "./src/index.ts",
+  entry,
   output: {
-    library: 'works',
-    libraryTarget: 'umd',
+    libraryTarget: "umd",
+    globalObject: "this",
     //  出力ファイルのディレクトリ名
-    path: path.join(process.cwd(), "lib"),
+    path: path.resolve(process.cwd(), "lib"),
     // 出力ファイル名
-    filename: 'works.js',
+    filename: "[name].js",
     assetModuleFilename: "assets/[hash]",
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-
         use: {
           loader: "ts-loader",
           options: {
@@ -50,8 +53,5 @@ export default {
   resolve: {
     extensions: [".ts"],
   },
-  externals: [
-    "three",
-    "dat.gui"
-  ],
-}
+  externals: ["three", "dat.gui"],
+};
