@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "webpack": { "config": "./webpack.development.js" }
+    }
+  }
+}

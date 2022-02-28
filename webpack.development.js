@@ -38,6 +38,7 @@ const setting = dirList.map((dir) => {
       rules: [
         {
           test: /\.s[ac]ss$/i,
+          exclude: /node_modules/,
           use: [
             "style-loader",
             {
@@ -58,6 +59,7 @@ const setting = dirList.map((dir) => {
         },
         {
           test: /\.ts$/,
+          exclude: /node_modules/,
           use: {
             loader: "ts-loader",
             options: {
@@ -72,10 +74,12 @@ const setting = dirList.map((dir) => {
         },
         {
           test: /\.(glb|gltf)$/,
+          exclude: /node_modules/,
           type: "asset/resource",
         },
         {
           test: /\.pug$/,
+          exclude: /node_modules/,
           use: [
             {
               loader: "pug-loader",
@@ -85,6 +89,9 @@ const setting = dirList.map((dir) => {
       ],
     },
     resolve: {
+      alias: {
+        "@work": path.resolve(srcPath, dir),
+      },
       extensions: [".ts"],
     },
     plugins: [plugin],

@@ -29,6 +29,7 @@ export default class Test extends BaseWork {
 
   constructor(canvas: HTMLCanvasElement) {
     super(canvas);
+    console.log("aaaaaaaaaaaaaa");
     this.renderer = new WebGLRenderer({ canvas });
     this.scene = new Scene();
     this.camera = new OrthographicCamera(-0.5, 0.5, 0.5, -0.5, -10000, 10000);

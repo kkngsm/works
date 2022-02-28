@@ -1,5 +1,5 @@
 import "../sass/style.sass";
-import Work from /*replace*/ "../../src/test" /*replace*/;
+import Work from "@work" /*replace webpack arias*/;
 window.onload = async () => {
   const canvas = document.createElement(`canvas`);
   (document.getElementById(`wrapper`) as HTMLElement).appendChild(canvas);
