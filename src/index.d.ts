@@ -7,3 +7,6 @@ declare module "*.frag" {
   const src: string;
   export default src;
 }
+
+declare module "*.gltf";
+declare module "*.glb";

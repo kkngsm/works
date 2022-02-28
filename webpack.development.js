@@ -19,7 +19,7 @@ dirList.forEach((dir) => {
   datas[dir] = require(path.resolve(srcPath, dir, "info.json"));
 });
 
-const setting = dirList.map((dir) => {
+const settings = dirList.map((dir) => {
   const plugin = new HtmlWebpackPlugin({
     inject: false,
     filename: path.resolve(process.cwd(), "dist", dir, "index.html"),
@@ -99,7 +99,7 @@ const setting = dirList.map((dir) => {
   };
 });
 
-setting[0].plugins.push(
+settings[0].plugins.push(
   new HtmlWebpackPlugin({
     inject: false,
     filename: path.resolve(process.cwd(), "dist", "index.html"),
@@ -108,4 +108,4 @@ setting[0].plugins.push(
   })
 );
 
-module.exports.default = setting;
+module.exports.default = settings;
