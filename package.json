@@ -7,7 +7,7 @@
   "main": "lib/works.js",
   "types": "lib/index.d.ts",
   "exports": {
-    "./*": "./lib/*/index.js"
+    "./*": "./lib/*.js"
   },
   "publishConfig": {
     "access": "restricted",
