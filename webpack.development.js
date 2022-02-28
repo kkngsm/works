@@ -3,15 +3,15 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const modeIsDevelopment = process.env.NODE_ENV == "development";
-//ファイルとディレクトリのリストが格納される(配列)
 const srcPath = path.resolve(process.cwd(), "src");
 const files = fs.readdirSync(srcPath);
 
-// //ディレクトリのリストに絞る
+const extludeDir = modeIsDevelopment ? ["templates"] : ["templates", "test"];
+
 const dirList = files.filter((file) => {
   return (
     fs.statSync(path.resolve(srcPath, file)).isDirectory() &&
-    file != "templates"
+    !extludeDir.includes(file)
   );
 });
 const datas = {};
