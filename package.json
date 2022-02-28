@@ -1,6 +1,6 @@
 {
   "name": "@kkngsm/works",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "works on koki.one ",
   "author": "kkngsm",
   "license": "GPL",
@@ -19,7 +19,8 @@
     "directory": "works"
   },
   "scripts": {
-    "build": "NODE_ENV='production' webpack --config webpack.production.js",
+    "build-module": "NODE_ENV='production' webpack --config webpack.production.js",
+    "build-pages": "NODE_ENV='production' webpack --config webpack.development.js",
     "dev": "NODE_ENV='development' webpack --watch --config webpack.development.js",
     "test": "exit 0",
     "remove": "rm -rf dist lib"

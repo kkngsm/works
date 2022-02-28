@@ -10,9 +10,10 @@ const extludeDir = ["templates", "test"];
 const dirList = files.filter((file) => {
   return (
     fs.statSync(path.resolve(srcPath, file)).isDirectory() &&
-    extludeDir.includes(file)
+    !extludeDir.includes(file)
   );
 });
+console.log(dirList);
 const entry = {};
 dirList.forEach((dir) => {
   entry[dir] = path.resolve(srcPath, dir, "index.ts");
