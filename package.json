@@ -6,6 +6,9 @@
   "license": "GPL",
   "main": "lib/works.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    "./*": "./lib/*/index.js"
+  },
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com/"

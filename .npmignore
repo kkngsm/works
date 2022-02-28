@@ -1,6 +1,8 @@
 src/
 dist/
-tsconfig.json
-tsconfig.production.json
+tsconfig*.json
 .github
-example
+.vscode
+example/
+eslint*
+webpack.*.js
