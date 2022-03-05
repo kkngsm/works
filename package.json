@@ -7,6 +7,7 @@
   "main": "lib/works.js",
   "types": "lib/index.d.ts",
   "exports": {
+    ".": "./lib/eye.js",
     "./*": "./lib/*.js"
   },
   "publishConfig": {
