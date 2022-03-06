@@ -1,14 +1,14 @@
 {
   "name": "@kkngsm/works",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "works on koki.one ",
   "author": "kkngsm",
   "license": "GPL",
-  "main": "lib/works.js",
-  "types": "lib/index.d.ts",
+  "main": "./src/index.ts",
   "exports": {
-    ".": "./lib/eye.js",
-    "./*": "./lib/*.js"
+    ".": "./src/index.ts",
+    "./eye": "./src/eye/index.ts",
+    "./turing-pattern": "./src/turing-pattern/index.ts"
   },
   "publishConfig": {
     "access": "restricted",
@@ -20,7 +20,6 @@
     "directory": "works"
   },
   "scripts": {
-    "build-module": "NODE_ENV='production' webpack --config webpack.production.js",
     "build-pages": "NODE_ENV='production' webpack --config webpack.development.js",
     "dev": "NODE_ENV='development' webpack --watch --config webpack.development.js",
     "test": "exit 0",
