@@ -1,7 +1,6 @@
 import BaseWork from "../templates/BaseWork";
 
 import {
-  Camera,
   PerspectiveCamera,
   Scene as TScene,
   Vector3,
@@ -12,7 +11,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 export default class Eye extends BaseWork {
   private renderer: WebGLRenderer;
   private scene: TScene;
-  private camera: Camera;
+  private camera: PerspectiveCamera;
 
   private enemy: EyeModel;
   private contorler: OrbitControls;
@@ -38,6 +37,8 @@ export default class Eye extends BaseWork {
   resize(width: number, height: number): void {
     this.resizeCanvas(width, height);
     this.renderer.setSize(width, height);
+    this.camera.aspect = width / height;
+    this.camera.updateProjectionMatrix();
   }
   render(time: number): void {
     this.contorler.update();
