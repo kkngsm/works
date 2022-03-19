@@ -207,7 +207,7 @@ void main() {
     this.resize(this.canvas.clientWidth, this.canvas.clientHeight);
     this.guiParam = this.addGUI();
   }
-  static build(canvas: HTMLCanvasElement) {
+  static async build(canvas: HTMLCanvasElement) {
     return new IFS(canvas);
   }
   resize(width: number, height: number) {

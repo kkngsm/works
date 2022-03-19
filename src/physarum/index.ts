@@ -171,7 +171,7 @@ export default class Physarum extends BaseWork {
 
     this.resize(this.canvas.clientWidth, this.canvas.clientHeight);
   }
-  static build(canvas: HTMLCanvasElement) {
+  static async build(canvas: HTMLCanvasElement) {
     return new Physarum(canvas);
   }
   render(time: number) {

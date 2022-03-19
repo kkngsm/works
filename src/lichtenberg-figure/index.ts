@@ -76,7 +76,7 @@ export default class Lichtenberg extends BaseWork {
 
     this.resize(this.canvas.clientWidth, this.canvas.clientHeight);
   }
-  static build(canvas: HTMLCanvasElement) {
+  static async build(canvas: HTMLCanvasElement) {
     return new Lichtenberg(canvas);
   }
   resize(width: number, height: number) {
