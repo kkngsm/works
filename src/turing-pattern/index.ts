@@ -108,6 +108,14 @@ export default class TuringPattern extends BaseWork {
     this.mesh = new Mesh(plane, this.grayScott);
     this.scene.add(this.mesh);
     this.resize(canvas.clientWidth, canvas.clientHeight);
+
+    this.uniforms.color1.value.x = (this.guiParams.color1[0] as number) / 255;
+    this.uniforms.color1.value.y = (this.guiParams.color1[1] as number) / 255;
+    this.uniforms.color1.value.z = (this.guiParams.color1[2] as number) / 255;
+
+    this.uniforms.color2.value.x = (this.guiParams.color2[0] as number) / 255;
+    this.uniforms.color2.value.y = (this.guiParams.color2[1] as number) / 255;
+    this.uniforms.color2.value.z = (this.guiParams.color2[2] as number) / 255;
   }
   static async build(canvas: HTMLCanvasElement): Promise<TuringPattern> {
     return new TuringPattern(canvas);
@@ -164,8 +172,8 @@ export default class TuringPattern extends BaseWork {
       b: 0.078,
       cu: 0.002,
       cv: 0.001,
-      color1: [0, 178.5, 178.5],
-      color2: [178.5, 0, 178.5],
+      color1: [147, 175, 81],
+      color2: [82, 95, 208],
     };
     this.gui.add(guiObj, `dt`, 0, 0.999).onChange((v: number) => {
       this.uniforms.dt.value = v;
