@@ -5,3 +5,4 @@ tsconfig*.json
 example/
 eslint*
 webpack.*.js
+node_modules/
